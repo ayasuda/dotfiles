@@ -37,7 +37,7 @@ set fileencoding=utf-8
 
 set visualbell
 
-"call pathogen#runtime_append_all_bundles()
+call pathogen#runtime_append_all_bundles()
 
 function! GetStatusEx()
     let str = ''
