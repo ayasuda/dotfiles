@@ -1,0 +1,2 @@
+escape ^z^z
+caption always "%{= bf}%5n %t (%H) %l%=%Y-%m-%d %c:%s 
