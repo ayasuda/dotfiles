@@ -1,2 +1,4 @@
 escape ^z^z
-caption always "%{= bf}%5n %t (%H) %l%=%Y-%m-%d %c:%s 
+#caption always "%{= bf}%5n %t (%H) %l%=%Y-%m-%d %c:%s"
+caption always "%{=r dd}%-Lw%40L>%?%F%{=b dR}%:[%? %n%f %t %?%F%{-}%:]%?%+Lw"
+defscrollback 1000
