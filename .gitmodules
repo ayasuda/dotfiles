@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/git-vim"]
 	path = .vim/bundle/git-vim
 	url = git://github.com/motemen/git-vim.git
+[submodule ".vim/bundle/vim-ref.git"]
+	path = .vim/bundle/vim-ref.git
+	url = https://github.com/thinca/vim-ref.git

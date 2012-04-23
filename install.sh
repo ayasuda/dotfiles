@@ -18,8 +18,8 @@ install_file()
 	local _target=$1
 	local _linkname=$2
 	if [ ! -e "${_linkname}" ]; then
-		ln -s "${_target} ${_linkname}"
-  fi
+		ln -s "${_target}" "${_linkname}"
+	fi
 }
 
 install_file "${installer_path}/.vimrc" "${install_path}/.vimrc"
