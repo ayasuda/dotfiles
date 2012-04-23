@@ -10,7 +10,8 @@ syntax on
 colorscheme desert " 砂漠系テーマ
 
 " tab 文字の代わりにホワイトスペースを挿入する
-set expandtab
+"set expandtab
+set noexpandtab
 " tab はホワイトスペース 2 文字分
 set tabstop=2
 set softtabstop=2
@@ -37,7 +38,24 @@ set fileencoding=utf-8
 
 set visualbell
 
+set list
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
+
+""" pathogen.vim
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+""" ref.vim
+nmap ,rp :<C-u>Ref phpmanual<Space>
+let g:ref_phpmanual_path = '/home/ayasuda/docs/phpmanual'
+
+""" tagexplorer
+set tags=tags
+
+""" for php
+let php_sql_query=1
+let php_htmlInStrings=1
+let php_folding=2
 
 function! GetStatusEx()
     let str = ''
