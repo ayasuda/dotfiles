@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-ref.git"]
 	path = .vim/bundle/vim-ref.git
 	url = https://github.com/thinca/vim-ref.git
+[submodule ".vim/bundle/jellybeans.vim"]
+	path = .vim/bundle/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git

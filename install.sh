@@ -26,3 +26,9 @@ install_file "${installer_path}/.vimrc" "${install_path}/.vimrc"
 install_file "${installer_path}/.vim" "${install_path}/.vim"
 install_file "${installer_path}/.screenrc" "${install_path}/.screenrc"
 install_file "${installer_path}/.zshrc" "${install_path}/.zshrc"
+
+cat <<NEXT
+cd ${installer_path}
+git submodule init
+git sbumodlue update
+NEXT
