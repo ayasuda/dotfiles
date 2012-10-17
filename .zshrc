@@ -1,3 +1,4 @@
+source ~/.bashrc
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -19,7 +20,7 @@ export LANG=ja_JP.UTF-8
 #
 case ${UID} in
 0)
-  PROMPT="%/%% "
+  PROMPT="%{^[[31m%}%/%% "
   PROMPT2="%_%% "
   SPROMPT="%r is correct? [n,y,a,e]: "
   [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
@@ -33,3 +34,5 @@ case ${UID} in
   PROMPT="${HOST%%.*} ${PROMPT}"
   ;;
 esac
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
