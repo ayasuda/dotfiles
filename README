@@ -1,7 +1,0 @@
-my vim files
-
-manage plugin pathogen.vim
-if want to use new plugin
-use this command
-
-$ git submodule add git://github.com/msanders/snipmate.vim.git .vim/bundle/snipmate.vim 
