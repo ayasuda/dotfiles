@@ -1,17 +1,10 @@
-#!/usr/bin/env bash
-
-#dotfiles installer
+#!/bin/bash
 
 install_path=$HOME
 installer_path=`pwd`
-
-echo <<DESCRIPTION
-installing those files
-	.vimrc
-	.vim (directory)
-	.screenrc
-	.zshrc
-DESCRIPTION
+cd ${installer_path}
+git submodule init
+git submodule update
 
 install_file()
 {
@@ -19,16 +12,15 @@ install_file()
 	local _linkname=$2
 	if [ ! -e "${_linkname}" ]; then
 		ln -s "${_target}" "${_linkname}"
+		echo "linking ${_linkname}"
+	else
+		echo "skipping ${_linkname}"
 	fi
 }
 
-install_file "${installer_path}/.vimrc" "${install_path}/.vimrc"
-install_file "${installer_path}/.vim" "${install_path}/.vim"
-install_file "${installer_path}/.screenrc" "${install_path}/.screenrc"
-install_file "${installer_path}/.zshrc" "${install_path}/.zshrc"
+dotfiles=( .zshrc .vim .vimrc .screenrc)
 
-cat <<NEXT
-cd ${installer_path}
-git submodule init
-git sbumodlue update
-NEXT
+for file in ${dotfiles[@]}
+do
+	install_file "${installer_path}/${file}" "${install_path}/${file}"
+done
