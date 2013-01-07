@@ -1,32 +1,32 @@
 " '"' 以降はコメント
 
-" 自動バックアップをきる
-set nobackup
-" シンタックスハイライトを使う
-syntax on 
-" 色は「darkblue」テーマで。
-"colorscheme darkblue
-"colorscheme blue " 青系テーマ
+" vi 互換モードを切り、より使いやすくする。 (まぁ、vimrc 見つかった時点で off になるけど)
+set nocompatible
+
+" ================ Pathogen の設定 ================
+" pathogen.vim
+runtime bundle/vim-patogen/autoload/patogen.vim
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" ================ エディタの基本設定 ================
+set nobackup " 自動バックアップをきる
+set number   " 左端に行番号を示す
+set title    " ファイル名をタイトルバーに表示する
+set history=500 " コマンドラインの実行記録を 500 件保持する
+set visualbell
+syntax on    " シンタックスハイライトを使う
 colorscheme desert " 砂漠系テーマ
-
-" tab 文字の代わりにホワイトスペースを挿入する
-"set expandtab
-set noexpandtab
-" tab はホワイトスペース 2 文字分
-set tabstop=2
+set noexpandtab " tab 文字の代わりにホワイトスペースを挿入する
+set tabstop=2 " tab はホワイトスペース 2 文字分
 set softtabstop=2
-" インデントはホワイトスペース 2 文字分
-set shiftwidth=2
-"set textwidth=4
+set shiftwidth=2 " インデントはホワイトスペース 2 文字分
 
-" 自動的にインデントする
-set autoindent
-set cindent
+" ================ インデントの設定 ================
+set autoindent  " 自動的にインデントする
+set smartindent " 'スマートな' インデントを行う
+set smarttab    " 行頭で tab をうつと、 shiftwitdh 分だけ tab がうたれる
 
-" 左端に行番号を示す
-set number
-" ファイル名をタイトルバーに表示する
-set title
 set laststatus=2
 " ステータスラインは
 " 「{GetStatusEx関数の戻り値}ファイル名(フルパス)<列番号:行番号>
@@ -36,18 +36,14 @@ set statusline=%y%{GetStatusEx()}%F%m%r%=<%c:%l>
 set fileencoding=utf-8
 " set termencoding=cp932
 
-set visualbell
 
 set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 
-""" pathogen.vim
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 """ ref.vim
 nmap ,rp :<C-u>Ref phpmanual<Space>
-let g:ref_phpmanual_path = '/home/ayasuda/docs/phpmanual'
+let g:ref_phpmanual_path = '/home/ayasuda/dotfile-vim/.vim/doc/phpmanual'
 
 """ tagexplorer
 set tags=tags
