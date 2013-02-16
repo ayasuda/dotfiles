@@ -56,7 +56,7 @@ set autoindent  " 自動的にインデントする
 set smartindent " 'スマートな' インデントを行う
 set smarttab    " 行頭で tab をうつと、 shiftwitdh 分だけ tab がうたれる
 
-set noexpandtab   " tab 文字の代わりにホワイトスペースを挿入しない
+set expandtab   " tab 文字の代わりにホワイトスペースを挿入しない
 set tabstop=2     " tab はホワイトスペース 2 文字分
 set softtabstop=2 " tab はホワイトスペース 2 文字分
 set shiftwidth=2  " インデントはホワイトスペース 2 文字分
@@ -76,11 +76,12 @@ set hlsearch   " 検索文字をハイライトする
 " ================ 補完の設定 ================
 set wildmenu " コマンドの補完が見やすくなる
 
+filetype plugin indent on
 
 """ ref.vim
+
 nmap ,rp :<C-u>Ref phpmanual<Space>
 let g:ref_phpmanual_path = '/home/ayasuda/dotfile-vim/.vim/doc/phpmanual'
-
 
 """ for php
 let php_sql_query=1
