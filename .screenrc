@@ -1,4 +1,15 @@
+defutf8 on
+defencoding utf8
+encoding utf-8 utf-8
+
 escape ^z^z
-#caption always "%{= bf}%5n %t (%H) %l%=%Y-%m-%d %c:%s"
 caption always "%{=r dd}%-Lw%40L>%?%F%{=b dR}%:[%? %n%f %t %?%F%{-}%:]%?%+Lw"
+hardstatus alwayslastline "%H%=%Y/%m/%d %02c"
 defscrollback 1000
+
+startup_message off
+autodetach on
+
+shelltitle "$ |shell"
+
+shell /usr/local/bin/zsh

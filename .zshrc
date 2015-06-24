@@ -1,19 +1,26 @@
-source ~/.bashrc
-# Lines configured by zsh-newuser-install
+source ~/.bash_profile
+
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ayasuda/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-#
 export LANG=ja_JP.UTF-8
 
+setopt AUTO_CD # 入力されたコマンドが実行できず、入力と同じ名前のディレクトリがあるとき、入力を cd とみなす
+setopt AUTO_PUSHD # cd するごとに自動的にディレクトリスタックに積む
+
+# 同時に起動したzshの間でヒストリを共有する
+setopt share_history
+
+# 同じコマンドをヒストリに残さない
+setopt hist_ignore_all_dups
+
+# スペースから始まるコマンド行はヒストリに残さない
+setopt hist_ignore_space
+
+# ヒストリに保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks
 
 #
 # set prompt
@@ -34,5 +41,3 @@ case ${UID} in
   PROMPT="${HOST%%.*} ${PROMPT}"
   ;;
 esac
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
