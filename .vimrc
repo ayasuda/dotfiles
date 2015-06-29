@@ -13,8 +13,8 @@ set nocompatible
 " ================ Pathogen の設定 ================
 " pathogen.vim
 runtime bundle/vim-patogen/autoload/patogen.vim
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" all pathogen#helptags()
 
 " ================ エディタの基本設定 ================
 " set encoding=utf-8
