@@ -7,14 +7,30 @@
 " :source $MYVIMRC
 "
 
-" vi 互換モードを切り、より使いやすくする。 (まぁ、vimrc 見つかった時点で off になるけど)
-set nocompatible
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+  set nocompatible " vi 互換モードを切る
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand('~/.vim/bundle'))
 
-" ================ Pathogen の設定 ================
-" pathogen.vim
-runtime bundle/vim-patogen/autoload/patogen.vim
-call pathogen#runtime_append_all_bundles()
-"all pathogen#helptags()
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' } " You can specify revision/branch/tag.
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
 
 " ================ エディタの基本設定 ================
 " set encoding=utf-8
@@ -76,24 +92,16 @@ set hlsearch   " 検索文字をハイライトする
 " ================ 補完の設定 ================
 set wildmenu " コマンドの補完が見やすくなる
 
-filetype plugin indent on
-
-""" ref.vim
-
-nmap ,rp :<C-u>Ref phpmanual<Space>
-let g:ref_phpmanual_path = '/home/ayasuda/dotfile-vim/.vim/doc/phpmanual'
-
 """ for php
 let php_sql_query=1
 let php_htmlInStrings=1
 let php_folding=2
 
 function! GetStatusEx()
-    let str = ''
-    let str = str . '[' .&fileformat . ']'
-    if has('multi_byte') && &fileencoding != ''
-        let str = '[' . &fileencoding . ']' . str
-    endif
-    return str
+  let str = ''
+  let str = str . '[' .&fileformat . ']'
+  if has('multi_byte') && &fileencoding != ''
+    let str = '[' . &fileencoding . ']' . str
+  endif
+  return str
 endfunction
-
