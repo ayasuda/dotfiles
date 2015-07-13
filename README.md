@@ -11,10 +11,4 @@ cd ~/.dotfiles
 sh ./install.sh
 ```
 
-## ChangeLog
-
-manage plugin pathogen.vim
-if want to use new plugin
-use this command
-
-$ git submodule add git://github.com/msanders/snipmate.vim.git .vim/bundle/snipmate.vim 
+最近 NeoBundle 入れたので、それ用の手順をそのうち書いておきたい
