@@ -7,15 +7,23 @@
 " :source $MYVIMRC
 "
 
-"NeoBundle Scripts-----------------------------
+" ================ 初期化〜 ================
 if has('vim_starting')
   set nocompatible " vi 互換モードを切る
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+set encoding=utf-8
+set fileencoding=utf-8
+" set termencoding=cp932
+
 call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-fugitive'
+
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 call neobundle#end()
 
@@ -28,9 +36,6 @@ NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 " ================ エディタの基本設定 ================
-" set encoding=utf-8
-set fileencoding=utf-8
-" set termencoding=cp932
 
 set nobackup   " 自動バックアップをきる
 set noswapfile " スワップファイルを作らない
