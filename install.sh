@@ -18,9 +18,9 @@ install_file()
 	fi
 }
 
-dotfiles=( .zshrc .vim .vimrc .screenrc)
+dotfiles=(zshrc vim vimrc screenrc)
 
 for file in ${dotfiles[@]}
 do
-	install_file "${installer_path}/${file}" "${install_path}/${file}"
+	install_file "${installer_path}/${file}" "${install_path}/.${file}"
 done
