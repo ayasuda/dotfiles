@@ -22,8 +22,11 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-fugitive'
 
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+
+NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 
@@ -85,17 +88,13 @@ set incsearch  " インクリメンタルサーチを有効にする (キーを�
 set hlsearch   " 検索文字をハイライトする
 
 " ================ 畳み込みの設定 ================
-" set foldmethod=indent
+" set foldmethod=syntax
+" set foldopen=all
 " set foldnestmax=3
 " set nofoldenable " 
 
 " ================ 補完の設定 ================
 set wildmenu " コマンドの補完が見やすくなる
-
-""" for php
-let php_sql_query=1
-let php_htmlInStrings=1
-let php_folding=2
 
 function! GetStatusEx()
   let str = ''

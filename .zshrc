@@ -41,3 +41,4 @@ case ${UID} in
   PROMPT="${HOST%%.*} ${PROMPT}"
   ;;
 esac
+
