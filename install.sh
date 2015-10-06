@@ -2,6 +2,7 @@
 
 install_path=$HOME
 installer_path=`pwd`
+dotfiles=(zshrc vim vimrc screenrc gitconfig)
 cd ${installer_path}
 git submodule init
 git submodule update
@@ -18,7 +19,6 @@ install_file()
 	fi
 }
 
-dotfiles=(zshrc vim vimrc screenrc)
 
 for file in ${dotfiles[@]}
 do

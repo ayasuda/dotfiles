@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+[user]
+  name = Atsushi Yasuda
+  email = atsushi.yasuda.jp@gmail.com
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[alias]
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
