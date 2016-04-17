@@ -15,7 +15,7 @@ setenv SCREEN_HARDSTATUS "%H%=%Y/%m/%d %02c"
 # 端末のハードステータス行(screen は VT100互換端末のエミュレータだぜ！)を、常に、画面一番下の行に表示する。
 hardstatus alwayslastline "$SCREEN_HARDSTATUS"
 
-defscrollback 1000
+defscrollback 2000
 
 startup_message off
 autodetach on

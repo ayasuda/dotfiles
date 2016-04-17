@@ -27,6 +27,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'slim-template/vim-slim'
 
 call neobundle#end()
 
