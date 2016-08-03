@@ -1,10 +1,11 @@
+# 参考: http://rcmdnk.github.io/blog/2014/02/18/computer-screen-3/
 # utf8 on # このウィンドウのエンコーディングを utf8 にする
 defutf8 on # 新しいウィンドウのデフォルトを全て utf8 on にする
 
 encoding utf8 utf8 # このウィンドウのエンコーディングを utf8 にし、接続している端末のエンコーディングも utf8 にする
 defencoding utf8 # 新しいウィンドウのデフォルトを全て encoding utf8 にする
 
-escape ^z^z # エスケープを C-z にする。C-z 自身を入力したい時は続けて C-z とする
+escape ^Tt # エスケープを C-t にする。
 
 # キャプションの内容 # TODO: 行分割して内容分かりやすく！！ setenv SCREEN_CAPTION "$SCREEN_CAPTION additional_string"
 setenv SCREEN_CAPTION "%{=r dd}%-Lw%40L>%?%F%{=b dR}%:[%? %n%f %t %?%F%{-}%:]%?%+Lw"
@@ -27,5 +28,14 @@ chdir
 
 bind j focus down
 bind k focus up
+bind l focus right
+bind h focus left
 bind t focus top
 bind b focus bottom
+
+bind e eval 'command -c resize' 'echo "Resize window"'
+bind ^e eval 'command -c resize' 'echo "Resize window"'
+bind -c resize h eval 'command -c resize' 'resize -h -1'
+bind -c resize l eval 'command -c resize' 'resize -h +1'
+bind -c resize j eval 'command -c resize' 'resize -v +1'
+bind -c resize k eval 'command -c resize' 'resize -v -1'
