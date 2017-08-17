@@ -11,27 +11,25 @@ export PAGER=less
 # export VISUAL
 
 # zsh オプション
-# ====
-#
-# ディレクトリ移動
-# ---
-#
-# AUTO_CO (-J)
-# コマンドが実行可能でなく、かつ同じ名前のヂレクトリがあるとき、そのディレクトリへの cd コマンドとして振舞うようになる。
-#
-# AUTO_PUSHD (-N)
-# CDABLE_VARS (-T)
-# CHASE_DOTS
-# CHASE_LINKS (-w)
-# POSIX_CD
-# PUSHD_IGNORE_DUPS
-# PUSHD_MINUS
-# PUSHD_SILENT (-E)
-# PUSHD_TO_HOME (-D)
-#
-# 補完
-# ---
-#
+# <D> 基本的にデフォルトでセットされてるやつ
+# <C> csh のエミュレーションのときにデフォルトでセットされるやつ
+# <K> ksh のエミュレーションのときにデフォルトでセットされるやつ
+# <S>  sh のエミュレーションのときにデフォルトでセットされるやつ
+# <Z> zsh のエミュレーションのときにデフォルトでセットされるやつ
+
+## ディレクトリ移動
+setopt AUTO_CD      # 入力されたコマンドが実行できず、入力と同じ名前のディレクトリがあるとき、入力を cd とみなす
+setopt AUTO_PUSHD   # cd するごとに自動的にディレクトリスタックに積む
+# CDABLE_VARS       # cd するときにディレクトリじゃなく、`/` からも始まらないとき、`~` を自動的に補完して変数として展開する。( see the section `Filename Expansion` )
+# CHASE_DOTS        # cd するときに .. を使うと本当のディレクトリに移動する（リンクだったとき用）
+# CHASE_LINKS       # cd するときに .. 使わなくても本当のディレクトリに移動する（リンクだったとき用）
+# POSIX_CD          # <K> <S> 長いから man 読んで
+# PUSHD_IGNORE_DUPS # pushd するときに、同じディレクトリを登録しない
+# PUSHD_MINUS       # pushd の数を反転させる。 + が - になる。なお、このとき -1 はひとつ前。
+# PUSHD_SILENT      # pushd を静かにする。
+# PUSHD_TO_HOME     # pushd の引数がない場合は `pushd $HOME` になる
+
+## 補完
 # ALWAYS_LAST_PROMPT <D>
 # ALWAYS_TO_END
 # AUTO_LIST (-9) <D>
@@ -53,9 +51,7 @@ export PAGER=less
 # MENU_COMPLETE (-Y)
 # REX_EXACT (-S)
 #
-# 拡張 (Expansion and Globbing)
-# ----
-#
+## 拡張 (Expansion and Globbing)
 # BAD_PATTERN (+2) <C> <Z>
 # BARE_GLOB_QUAL <Z>
 # BRACE_CCL
@@ -84,10 +80,8 @@ export PAGER=less
 # SH_GLOB <K> <S>
 # UNSET (+u, ksh: +u) <K> <S> <Z>
 # WARN_CREATE_GLOBAL
-#
-# History
-# ----
-#
+
+## History
 # APPEND_HISTORY <D>
 # BANG_HIST (+K) <C> <Z>
 # ExTENDED_HISTORY <C>
@@ -96,30 +90,26 @@ export PAGER=less
 # HIST_EXPIRE_DUPS_FIRST
 # HIST_FCNTL_LOCK
 # HIST_FIND_NO_DUPS
-# HIST_IGNORE_ALL_DUPS (-h)
-# HIST_IGNORE_SPACE (-g)
+setopt HIST_IGNORE_ALL_DUPS # 同じコマンドをヒストリに残さない
+setopt HIST_IGNORE_SPACE    # スペースから始まるコマンド行はヒストリに残さない
 # HIST_LEX_WORDS
 # HIST_NO_FUNCTIONS
 # HIST_NO_STORE
-# HIST_REDUCE_BLANKS
+setopt HIST_REDUCE_BLANKS # ヒストリに保存するときに余分なスペースを削除する
 # HIST_SAVE_BY_COPY <D>
 # HIST_SAVE_NO_DUPS
 # HIST_VERIFY
 # INC_APPEND_HISTORY
 # INC_APPEND_HISTORY_TIME
-# SHARE_HISOTRY <K>
-#
-# 初期化 (Initialisation)
-# ----
-#
+setopt SHARE_HISTORY # 同時に起動したzshの間でヒストリを共有する
+
+## 初期化 (Initialisation)
 # ALL_EXPORT (-a, ksh: -a)
 # GLOBAL_EXPORT <Z>
 # GLOBAL_RCS (-d) <D>
 # RCS (+f) <D>
-#
-# 入出力
-# ----
-#
+
+## 入出力
 # ALIASES <D>
 # CLOBBER (+C, ksh: +C) <D>
 # CORRECT (-0)
@@ -141,10 +131,8 @@ export PAGER=less
 # RM_STAR_WAIT
 # SHORT_LOOPS
 # SUN_KEYBOARD_HACK
-#
-# Job Control
-# ----
-#
+
+## Job Control
 # AUTO_CONTINUE
 # AUTO_RESUME (-W)
 # BG_NICE (-G) <C> <Z>
@@ -154,20 +142,16 @@ export PAGER=less
 # MONITOR (-m, ksh: -m)
 # NOTIFY (-5, ksh: -b) <Z)
 # POSIX_JOBS <K> <S>
-#
-# プロンプト (Prompting)
-# ----
-#
+
+## プロンプト (Prompting)
 # PROMPT_BANG <K>
 # PROMPT_CR (+V) <D>
 # PROMPT_SP <D>
 # PROMPT_PERCENT <C> <Z>
 # PROMPT_SUBST <K> <S>
 # TRANSIENT_PROMPT
-#
-# Script and Functions
-# ----
-#
+
+## Script and Functions
 # C_BASES
 # C_PRECEDENCES
 # DEBUG_BEFORE_CMD
@@ -188,10 +172,8 @@ export PAGER=less
 # TYPESET_SILENT
 # VERBOSE (-v, ksh: -v)
 # XTRACE (-x, ksh: -x)
-#
-# Shell Emulation
-# ----
-#
+
+## Shell Emulation
 # BASH_REMATCH
 # BSD_ECHO <S>
 # CONTINUE_ON_ERROR
@@ -219,20 +201,16 @@ export PAGER=less
 # SH_OPTION_LETTERS <K> <S>
 # SH_WORD_SPLIT (-y) <K> <S>
 # TRAP_ASYNC
-#
-# Shell State
-# ----
-#
+
+## Shell State
 # INTERACTIVE (-i, ksh: -i)
 # LOGIN (-l, ksh: -l)
 # PRIVILEGED (-p, ksh: -p)
 # RESTRICTED (-r)
 # SHIN_STDIN (-s, ksh: -s)
 # SINGLE_COMMAND (-t, ksh: -t)
-#
-# Zle
-# ----
-#
+
+## Zle
 # BEEP (+B) <D>
 # COMBINING_CHARS
 # EMACS
@@ -240,10 +218,8 @@ export PAGER=less
 # SINGLE_LINE_ZLE (-M) <K>
 # VI
 # ZLE (-Z)
-#
-# Option のエイリアス
-# ----
-#
+
+## Option のエイリアス
 # BRACE_EXPAND
 # DOT_GLOB
 # HASH_ALL
@@ -258,20 +234,7 @@ export PAGER=less
 # TRACK_ALL
 
 
-setopt AUTO_CD # 入力されたコマンドが実行できず、入力と同じ名前のディレクトリがあるとき、入力を cd とみなす
-setopt AUTO_PUSHD # cd するごとに自動的にディレクトリスタックに積む
 
-# 同時に起動したzshの間でヒストリを共有する
-setopt share_history
-
-# 同じコマンドをヒストリに残さない
-setopt hist_ignore_all_dups
-
-# スペースから始まるコマンド行はヒストリに残さない
-setopt hist_ignore_space
-
-# ヒストリに保存するときに余分なスペースを削除する
-setopt hist_reduce_blanks
 
 #
 # set prompt
@@ -293,3 +256,6 @@ case ${UID} in
   ;;
 esac
 
+
+eval "$(direnv hook zsh)"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"

@@ -25,9 +25,11 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'elixir-lang/vim-elixir'
 
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 

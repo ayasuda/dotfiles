@@ -18,6 +18,8 @@ hardstatus alwayslastline "$SCREEN_HARDSTATUS"
 
 defscrollback 2000
 
+bufferfile $HOME/.screen_exchange
+
 startup_message off
 autodetach on
 
