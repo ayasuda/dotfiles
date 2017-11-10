@@ -1,0 +1,26 @@
+19b88ad4f00ac570118111b1bc9544f35aae6a49 .vim/bundle/git-vim (heads/master)
+  f931895c20681684278aef2ffd810730b9c36ec3 .vim/bundle/jellybeans.vim (v1.5-29-gf931895)
+  9b49b42b331c196ad5a10483bb61b2a651b91d2e .vim/bundle/vim-cucumber (heads/master)
+  409c37b205afa2f9d590e23de8171482d66770e2 .vim/bundle/vim-markdown (v1.0-13-g409c37b)
+  b9fb0dfd811004010f5f6903edef42d6004ebea2 .vim/bundle/vim-pathogen (v2.3-11-gb9fb0df)
+  fb67345728d03cf58d6164ceb30c3e443a3ad44a .vim/bundle/vim-quickrun (v0.6.0-175-gfb67345)
+70741519b70a67623d1e5d56d50764491b7582ea .vim/bundle/vim-ref.git (ref-pydoc-v0.4.2-8-g7074151)
+
+  deleted:    bundle/git-vim
+  deleted:    bundle/jellybeans.vim
+  deleted:    bundle/onefiles/plugin/tagexplorer.vim
+  deleted:    bundle/ri-browser/doc/ri.txt
+  deleted:    bundle/ri-browser/ftplugin/ri.vim
+  deleted:    bundle/ri-browser/syntax/ri.vim
+  deleted:    bundle/vim-cucumber
+  deleted:    bundle/vim-markdown
+  deleted:    bundle/vim-pathogen
+  deleted:    bundle/vim-project/doc/project.txt
+  deleted:    bundle/vim-project/plugin/project.vim
+  deleted:    bundle/vim-quickrun
+  deleted:    bundle/vim-rails/autoload/rails.vim
+  deleted:    bundle/vim-rails/doc/rails.txt
+  deleted:    bundle/vim-rails/plugin/rails.vim
+  deleted:    bundle/vim-ref.git
+  modified:   ../.vimrc
+
