@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# reference: https://coderwall.com/p/22p0ja/set-get-osx-volume-mute-from-the-command-line
+
+function usage_exit() {
+  cat <<_EOS_ 1>&2
+usage: vol [-h|--help] [mute|<volume>]
+
+volume control for macOS
+
+ARGUMENTS:
+  NOTHING     Show current volume
+  <volume>    Set volume to <volume>, <volume> shoule be in 0..100
+  mute        Set volume toe mute
+  -h, --help  Show this help message
+_EOS_
+  exit 1
+}
+
+
+if test -z $1; then
+  osascript -e 'output volume of (get volume settings)'
+elif test $1 = "mute"; then
+  osascript -e "set volume output volume 0"
+elif test $1 = "-h" -o $1 = "--help"; then
+  usage_exit
+elif test $1 -ge 0 -a $1 -le 100; then
+  osascript -e "set volume output volume $1"
+  echo $1
+else
+  usage_exit
+fi
