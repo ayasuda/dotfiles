@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# BUG: if script runs at background, user cannot kill `tail` process easily.
+# TODO: make `-d`, `--demonize` option, and `start` `kill` supports.
+
+function usage_exit() {
+  cat <<_EOS_ 1>&2
+usage: wf [-h|--help] file
+
+watch file and send notification if a line added
+
+ARGUMENTS:
+  file        Path to watch
+  -h, --help  Show this help message
+_EOS_
+  exit 1
+}
+
+if test -z $1; then
+  usage_exit
+elif test -e $1; then
+  tail -n0 -f $1  | xargs -I @ terminal-notifier -message "@" -sound default -title "Watch File" -subtitle $1
+else
+  echo "FILE NOT FOUND" >&2
+fi
