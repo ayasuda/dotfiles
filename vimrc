@@ -17,28 +17,39 @@ set encoding=utf-8
 set fileencoding=utf-8
 " set termencoding=cp932
 
-call neobundle#begin(expand('~/.vim/bundle'))
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'tpope/vim-fugitive'
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'elixir-lang/vim-elixir'
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('kchmck/vim-coffee-script')
+  call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('elixir-lang/vim-elixir')
+  call dein#add('posva/vim-vue')
+  call dein#add('thinca/vim-quickrun')
+  call dein#add('slim-template/vim-slim')
+  call dein#add('fatih/vim-go')
+  call dein#add('udalov/kotlin-vim')
+  call dein#add("lepture/vim-jinja")
 
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'fatih/vim-go'
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-call neobundle#end()
+  call dein#end()
+  call dein#save_state()
+endif
 
 " Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
-NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 " ================ エディタの基本設定 ================

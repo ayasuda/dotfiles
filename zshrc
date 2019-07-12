@@ -1,8 +1,8 @@
 source ~/.bash_profile
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=~/.histfile # 履歴ファイル
+HISTSIZE=1000 # メモリに保存されるコマンド履歴の件数
+SAVEHIST=5000 # ファイルに保存されるコマンド履歴の件数
 
 # 環境変数設定
 export LANG=ja_JP.UTF-8
@@ -258,5 +258,10 @@ esac
 
 
 eval "$(direnv hook zsh)"
+eval "$(pyenv init -)"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/qt/bin:$PATH"
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
