@@ -4,6 +4,11 @@ HISTFILE=~/.histfile # 履歴ファイル
 HISTSIZE=1000 # メモリに保存されるコマンド履歴の件数
 SAVEHIST=5000 # ファイルに保存されるコマンド履歴の件数
 
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
+bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
+
 # 環境変数設定
 export LANG=ja_JP.UTF-8
 export PAGER=less
@@ -233,35 +238,47 @@ setopt SHARE_HISTORY # 同時に起動したzshの間でヒストリを共有す
 # STDIN
 # TRACK_ALL
 
+autoload colors
+colors
 
+local p_cdir="%F{green}[%/]%f"
+local p_user="%n"
 
+# プロンプト
+PROMPT="$p_cdir
+$p_user$ "
+
+# if, for とかの複数行時のプロンプト
+PROMPT2="%_%%"
+
+# コマンドがない時とかにヒント出す時のプロンプト
+SPROMPT="%r is correct? [n,y,a,e]: "
+
+# 今度 vcs_info と RPROMPT 組みわせてブランチ名を出すようにする。
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+# PROMPT=\$vcs_info_msg_0_'%# '
+zstyle ':vcs_info:git:*' formats '(%b)'
 
 #
 # set prompt
 #
-case ${UID} in
-0)
-  PROMPT="%{^[[31m%}%/%% "
-  PROMPT2="%_%% "
-  SPROMPT="%r is correct? [n,y,a,e]: "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-    PROMPT="${HOST%%.*} ${PROMPT}"
-  ;;
-*)
-  PROMPT="%/%% "
-  PROMPT2="%_%% "
-  SPROMPT="%r is correct? [n,y,a,e]: "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-  PROMPT="${HOST%%.*} ${PROMPT}"
-  ;;
-esac
-
-
-eval "$(direnv hook zsh)"
-eval "$(pyenv init -)"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="/usr/local/opt/qt/bin:$PATH"
-
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#case ${UID} in
+#0)
+#  PROMPT="%{^[[31m%}%/%% "
+#  PROMPT2="%_%% "
+#  SPROMPT="%r is correct? [n,y,a,e]: "
+#  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#    PROMPT="${HOST%%.*} ${PROMPT}"
+#  ;;
+#*)
+#  PROMPT="%/%% "
+#  PROMPT2="%_%% "
+#  SPROMPT="%r is correct? [n,y,a,e]: "
+#  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+#  PROMPT="${HOST%%.*} ${PROMPT}"
+#  ;;
+#esac
