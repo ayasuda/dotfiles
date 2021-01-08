@@ -24,3 +24,10 @@ for file in ${dotfiles[@]}
 do
 	install_file "${installer_path}/${file}" "${install_path}/.${file}"
 done
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# windows
+#iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+#    ni $HOME/vimfiles/autoload/plug.vim -Force
