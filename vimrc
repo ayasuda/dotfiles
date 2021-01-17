@@ -18,20 +18,14 @@ set fileencoding=utf-8
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/deoplete.nvim'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-ruby/vim-ruby'
-Plug 'kchmck/vim-coffee-script'
+Plug 'prabirshrestha/vim-lsp' " Language Server Protocol 対応
+Plug 'mattn/vim-lsp-settings' " ↑ の設定を簡易にするプラグイン
+
+Plug 'prabirshrestha/asyncomplete.vim' " コード補完
+Plug 'prabirshrestha/asyncomplete-lsp.vim' " ↑ の LSP 対応
+Plug 'tpope/vim-fugitive' " Git 統合
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'elixir-lang/vim-elixir'
-Plug 'posva/vim-vue'
 Plug 'thinca/vim-quickrun'
-Plug 'slim-template/vim-slim'
-Plug 'fatih/vim-go'
-Plug 'udalov/kotlin-vim'
-Plug 'lepture/vim-jinja'
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
 
 if !has('nvim')
   Plug 'roxma/nvim-yarp'
@@ -39,6 +33,8 @@ if !has('nvim')
 endif
 
 call plug#end()
+
+nmap <buffer> gd <plug>(lsp-definition)
 
 " Required:
 filetype plugin indent on
