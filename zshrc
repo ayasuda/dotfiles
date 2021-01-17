@@ -257,11 +257,14 @@ case ${UID} in
 esac
 
 
-eval "$(direnv hook zsh)"
-eval "$(pyenv init -)"
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="/usr/local/opt/qt/bin:$PATH"
+if which direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)";
+fi
