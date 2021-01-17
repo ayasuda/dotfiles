@@ -10,40 +10,35 @@
 " ================ 初期化〜 ================
 if has('vim_starting')
   set nocompatible " vi 互換モードを切る
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 set encoding=utf-8
 set fileencoding=utf-8
 " set termencoding=cp932
 
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+call plug#begin('~/.vim/plugged')
 
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+Plug 'Shougo/deoplete.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-ruby/vim-ruby'
+Plug 'kchmck/vim-coffee-script'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'elixir-lang/vim-elixir'
+Plug 'posva/vim-vue'
+Plug 'thinca/vim-quickrun'
+Plug 'slim-template/vim-slim'
+Plug 'fatih/vim-go'
+Plug 'udalov/kotlin-vim'
+Plug 'lepture/vim-jinja'
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
 
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('vim-ruby/vim-ruby')
-  call dein#add('kchmck/vim-coffee-script')
-  call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('elixir-lang/vim-elixir')
-  call dein#add('posva/vim-vue')
-  call dein#add('thinca/vim-quickrun')
-  call dein#add('slim-template/vim-slim')
-  call dein#add('fatih/vim-go')
-  call dein#add('udalov/kotlin-vim')
-  call dein#add("lepture/vim-jinja")
-
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-
-  call dein#end()
-  call dein#save_state()
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+
+call plug#end()
 
 " Required:
 filetype plugin indent on
