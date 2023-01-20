@@ -2,7 +2,7 @@
 
 install_path=$HOME
 installer_path=`pwd`
-dotfiles=(zshrc vim vimrc screenrc gitconfig tmux.conf)
+dotfiles=(zshrc vimrc screenrc gitconfig tmux.conf)
 cd ${installer_path}
 git submodule init
 git submodule update
@@ -25,6 +25,7 @@ do
 	install_file "${installer_path}/${file}" "${install_path}/.${file}"
 done
 
+mkdir -p $install_path/.vim/autoload
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
