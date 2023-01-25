@@ -263,6 +263,8 @@ RPROMPT=\$vcs_info_msg_0_
 # PROMPT=\$vcs_info_msg_0_'%# '
 zstyle ':vcs_info:git:*' formats '(%b)'
 
+export PATH=$PATH:$HOME/bin
+
 #
 # set prompt
 #
