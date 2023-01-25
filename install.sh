@@ -19,13 +19,23 @@ install_file()
 	fi
 }
 
-
 for file in ${dotfiles[@]}
 do
 	install_file "${installer_path}/${file}" "${install_path}/.${file}"
 done
 
-mkdir -p $install_path/.vim/autoload
+if [ ! -d $install_path/bin ]; then
+  echo "creating ${install_path}/bin"
+  mkdir -p $install_path/bin
+fi
+for file in `ls $installer_path/bin`
+do
+  install_file "${installer_path}/bin/${file}" "${install_path}/bin/${file}"
+done
+
+if [ ! -d $install_path/.vim/autoload ]; then
+  mkdir -p $install_path/.vim/autoload
+fi
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
