@@ -264,6 +264,7 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '(%b)'
 
 export PATH=$PATH:$HOME/bin
+alias src='cd "$( ghq list --full-path | peco)"'
 
 #
 # set prompt
@@ -284,3 +285,4 @@ export PATH=$PATH:$HOME/bin
 #  PROMPT="${HOST%%.*} ${PROMPT}"
 #  ;;
 #esac
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

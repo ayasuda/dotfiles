@@ -1,1 +1,1 @@
-cd `ghq list -p | peco --query "$LBUFFER"`
+cd "$( ghq list --full-path | peco)"

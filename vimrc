@@ -73,7 +73,7 @@ set list             " 制御文字（改行とか）を表示する
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:< " 制御文字を表示するときに使う記号
 
 syntax on    " シンタックスハイライトを使う
-colorscheme desert " 砂漠系テーマ
+colorscheme elflord " カラースキーマはデフォで
 
 " ================ インデントの設定 ================
 set autoindent  " 自動的にインデントする
