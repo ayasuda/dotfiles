@@ -16,6 +16,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 " set termencoding=cp932
 
+
+" ================ プラグインの読み込み ================
 call plug#begin('~/.vim/plugged')
 
 Plug 'prabirshrestha/vim-lsp' " Language Server Protocol 対応
@@ -33,8 +35,6 @@ if !has('nvim')
 endif
 
 call plug#end()
-
-nmap <buffer> gd <plug>(lsp-definition)
 
 " Required:
 filetype plugin indent on
@@ -100,6 +100,13 @@ set hlsearch   " 検索文字をハイライトする
 
 " ================ 補完の設定 ================
 set wildmenu " コマンドの補完が見やすくなる
+
+
+" ================ キーマップ (ショートカット) 設定 ================
+" gd で vim-lsp のコード定義移動を実行
+nmap <buffer> gd <plug>(lsp-definition)
+" \r で quick run の QuickRun を実行
+nnoremap <leader>r :QuickRun<CR>
 
 function! GetStatusEx()
   let str = ''
