@@ -28,6 +28,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim' " ↑ の LSP 対応
 Plug 'tpope/vim-fugitive' " Git 統合
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'thinca/vim-quickrun'
+Plug 'glidenote/memolist.vim' " This is a vimscript for create and manage memo. memolist.vim is inspired by jekyll.vim.
 
 if !has('nvim')
   Plug 'roxma/nvim-yarp'
